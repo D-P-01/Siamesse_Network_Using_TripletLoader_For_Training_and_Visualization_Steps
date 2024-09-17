@@ -1,7 +1,7 @@
 # Siamesse_Network_Using_TripletLoader_For_Training_and_Visualization_For_Custom_Dataset_Steps
 
 
-# Steps for Training on a Custom Dataset
+## Steps for Training on a Custom Dataset
 
 Follow these steps to train the model on your custom dataset:
 
