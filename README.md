@@ -10,24 +10,37 @@ Follow these steps to train the model on your custom dataset:
 git clone https://github.com/avilash/pytorch-siamese-triplet
 
 # 2. Navigate to the Cloned Directory
-cd path_to_your_directory
+cd Path_to_your_directory
 
 # 3. Install the Required Dependencies
 pip install -r requirements.txt
 
-# 4. Modify `test.yaml` for Custom Dataset
-# Open the `test.yaml` file in the `config` folder and add the path to your custom dataset:
+# 4. Modify test.yaml for Custom Dataset
+# Open the test.yaml file in the config folder and add the path to your custom dataset:
 # CUSTOM:
 #   HOME: "Path to the custom dataset"
 
-# 5. Set Custom Dataset in `train.py`
-# In the `train.py` file, set the default dataset as `custom` to use your dataset for training.
+# 5. Ensure the directory structure is as follows:
+# +-- root
+# |   +-- train
+# |       +-- class1
+# |           +-- img1.jpg
+# |           +-- img2.jpg
+# |           +-- img3.jpg
+# |       +-- class2
+# |       +-- class3
+# |   +-- test
+# |       +-- class4
+# |       +-- class5
 
-# 6. Run the Training Script
+# 6. Set Custom Dataset in train.py
+# In the train.py file, set the default dataset as custom to use your dataset for training.
+
+# 7. Run the Training Script
 python train.py --result_dir results --exp_name Custom_exp1 --cuda --epochs 10 --ckp_freq 5 --dataset custom --num_train_samples 5975 --num_test_samples 500 --train_log_step 50
 
-7. Results will be stored as checkpoint.pth file and it saves weight after 5 iterations by default.
-
+# 8. Check Results
+# The results will be stored as a checkpoint.pth file and model weights will be saved after every 5 iterations by default.
 ```
 
 ## Steps for t-SNE Visualization of Custom Dataset:
