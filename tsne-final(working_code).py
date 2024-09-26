@@ -18,7 +18,7 @@ import numpy as np
 from sklearn.manifold import TSNE
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from dataloader import custom_dset  # Import your custom dataset module
+from dataloader import vggface2 # Import your custom dataset module
 from dataloader.triplet_img_loader import BaseLoader
 
 def main():
@@ -81,8 +81,8 @@ def main():
             elif args.dataset == 'fmnist':
                 train_dataset = FashionMNIST('data/FashionMNIST', train=True, download=True, transform=transform)
             data_loader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True, **kwargs)
-        elif args.dataset == 'custom':
-            dset_obj = custom_dset.Custom()  # Instantiate your custom dataset
+        elif args.dataset == 'vggface2':
+            dset_obj = vggface2.VGGFace2()  # Instantiate your custom dataset
             dset_obj.load()  # Load dataset and generate triplets
             train_triplets = [dset_obj.getTriplet() for _ in range(args.num_train_samples)]
             transform = transforms.Compose([
@@ -166,7 +166,7 @@ if __name__ == '__main__':
                         help='enables CUDA training')
     parser.add_argument('--ckp', default=None, type=str,
                         help='path to load checkpoint')
-    parser.add_argument('--dataset', type=str, default='custom', metavar='M',
+    parser.add_argument('--dataset', type=str, default='vggface2', metavar='M',
                         help='Dataset (default: custom)')
     parser.add_argument('--pkl', default=None, type=str,
                         help='Path to load embeddings')
