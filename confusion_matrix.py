@@ -1,14 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-# BELOW CODE IS GIVIVG trin path can't be finded
+# BELOW CODE IS GENRATING CONFUSION-MATRIX
 
 import os
 import numpy as np
