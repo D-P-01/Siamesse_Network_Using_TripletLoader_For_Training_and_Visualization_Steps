@@ -56,3 +56,15 @@ python tsne.py --ckp 'Path to your trained model.pth file'
 
 # 3. The t-SNE visualization image and .pkl file will be saved in the `data` folder by default.
 ```
+
+## Steps for generating Confusion Matrix:
+
+Follow these steps:
+
+```bash
+# 1. Replace custom_dset.py file load fun with given code:
+#  def load(self,dir):
+        base_path = dir
+        super(Custom, self).load(base_path)
+
+# 2. Add the confusion_matrix.py file in the cloned repo and run the file :
